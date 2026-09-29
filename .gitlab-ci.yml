@@ -1,15 +1,24 @@
 # Etapas de nuestra pipeline
 stages:
   - test
+  - build
 
 # Job de prueba
 test:
   stage: test
 
-  # Comandos ejecutados por el Runner
   script:
-    - echo "Hola desde GitLab CI"
-    - echo "Pipeline ejecutada correctamente"
     - 'echo "Proyecto: $CI_PROJECT_NAME"'
-    - 'echo "Rama/commit: $CI_COMMIT_REF_NAME"'
+    - 'echo "Rama: $CI_COMMIT_REF_NAME"'
     - 'echo "Commit: $CI_COMMIT_SHORT_SHA"'
+
+# Job que prepara nuestro entorno Docker
+build-docker:
+  stage: build
+
+  # Imagen que contiene el comando docker
+  image: docker:29.8.1-cli
+
+  script:
+    # Comprobar que Docker está disponible
+    - docker --version
