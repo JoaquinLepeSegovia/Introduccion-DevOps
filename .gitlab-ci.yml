@@ -1,0 +1,13 @@
+# Definimos las etapas que tendrá nuestra pipeline
+stages:
+  - test
+
+# Job encargado de realizar una prueba básica
+test:
+  # Este job pertenece al stage "test"
+  stage: test
+
+  # Comandos que GitLab ejecutará
+  script:
+    - echo "Hola desde GitLab CI"
+    - echo "Pipeline ejecutada correctamente"
