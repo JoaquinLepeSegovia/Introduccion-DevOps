@@ -1,13 +1,15 @@
-# Definimos las etapas que tendrá nuestra pipeline
+# Etapas de nuestra pipeline
 stages:
   - test
 
-# Job encargado de realizar una prueba básica
+# Job de prueba
 test:
-  # Este job pertenece al stage "test"
   stage: test
 
-  # Comandos que GitLab ejecutará
+  # Comandos ejecutados por el Runner
   script:
     - echo "Hola desde GitLab CI"
     - echo "Pipeline ejecutada correctamente"
+    - echo "Proyecto: $CI_PROJECT_NAME"
+    - echo "Rama/commit: $CI_COMMIT_REF_NAME"
+    - echo "Commit: $CI_COMMIT_SHORT_SHA"
