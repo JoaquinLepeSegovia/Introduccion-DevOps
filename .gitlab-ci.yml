@@ -10,6 +10,6 @@ test:
   script:
     - echo "Hola desde GitLab CI"
     - echo "Pipeline ejecutada correctamente"
-    - echo "Proyecto: $CI_PROJECT_NAME"
-    - echo "Rama/commit: $CI_COMMIT_REF_NAME"
-    - echo "Commit: $CI_COMMIT_SHORT_SHA"
+    - 'echo "Proyecto: $CI_PROJECT_NAME"'
+    - 'echo "Rama/commit: $CI_COMMIT_REF_NAME"'
+    - 'echo "Commit: $CI_COMMIT_SHORT_SHA"'
